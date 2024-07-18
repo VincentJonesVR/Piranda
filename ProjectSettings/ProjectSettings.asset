@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: YARC
-  productName: YARG
+  companyName: Cardinal Expo
+  productName: Piranda
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -137,10 +137,9 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1.0
+  bundleVersion: 0.01
   preloadedAssets:
-  - {fileID: 11400000, guid: 2ffed9dcd47320f4986a850f05ff2ad5, type: 2}
-  - {fileID: 11400000, guid: 8efbce013f4e1c34895851b7038c76e9, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -278,7 +277,7 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 266b5a4b971fbc6408e72942c0c588db, type: 3}
+      m_Icon: {fileID: 2800000, guid: b97d675053e5a10489fe6b6b3e650fc8, type: 3}
       m_Width: 1024
       m_Height: 1024
       m_Kind: 0
@@ -316,6 +315,13 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 16
       m_Height: 16
+      m_Kind: 0
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: b97d675053e5a10489fe6b6b3e650fc8, type: 3}
+      m_Width: 128
+      m_Height: 128
       m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone

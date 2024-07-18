@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using YARG.Core;
 using YARG.Core.Audio;
 using YARG.Core.Logging;
 using YARG.Gameplay.HUD;
@@ -37,6 +35,8 @@ namespace YARG.Settings
 
             public bool ShowAntiPiracyDialog = true;
             public bool ShowEngineInconsistencyDialog = true;
+            public bool ShowExperimentalWarningDialog = true;
+
             public SortAttribute LibrarySort = SortAttribute.Name;
 
             #endregion
@@ -296,8 +296,8 @@ namespace YARG.Settings
             public IntSetting DMXCueChangeChannel { get; } =
                 new(8, 1, 512, v => SacnInterpreter.Instance.CueChangeChannel = v);
 
-            public IPv4Setting RB3EBroadcastIP { get; } = new(new byte[] { 255, 255, 255, 255 },
-                v => RB3EHardware.Instance.IPAddress = new IPAddress(v));
+            public IPv4Setting RB3EBroadcastIP { get; } =
+                new("255.255.255.255", ip => RB3EHardware.Instance.IPAddress = IPAddress.Parse(ip));
 
             public IntSetting DMXBeatlineChannel { get; } =
                 new(14, 1, 512, v => SacnInterpreter.Instance.BeatlineChannel = v);
@@ -513,7 +513,6 @@ namespace YARG.Settings
                         item2: device.description.ToJson());
                 }
             }
-
             #endregion
         }
     }

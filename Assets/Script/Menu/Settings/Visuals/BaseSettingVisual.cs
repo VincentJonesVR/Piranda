@@ -1,7 +1,7 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.Localization.Components;
 using YARG.Core.Input;
-using YARG.Helpers;
+using YARG.Localization;
 using YARG.Menu.Navigation;
 using YARG.Settings;
 using YARG.Settings.Types;
@@ -10,13 +10,13 @@ namespace YARG.Menu.Settings.Visuals
 {
     public abstract class BaseSettingVisual : MonoBehaviour
     {
-        protected static readonly NavigationScheme.Entry NavigateFinish = new(MenuAction.Red, "Confirm", () =>
+        protected static readonly NavigationScheme.Entry NavigateFinish = new(MenuAction.Red, "Menu.Common.Confirm", () =>
         {
             Navigator.Instance.PopScheme();
         });
 
         [SerializeField]
-        private LocalizeStringEvent _settingLabel;
+        private TextMeshProUGUI _settingLabel;
 
         public bool IsPresetSetting { get; private set; }
         public string UnlocalizedName { get; private set; }
@@ -26,8 +26,7 @@ namespace YARG.Menu.Settings.Visuals
             IsPresetSetting = false;
             UnlocalizedName = settingName;
 
-            _settingLabel.StringReference = LocaleHelper.StringReference(
-                "Settings", $"Setting.{settingName}");
+            _settingLabel.text = Localize.Key("Settings.Setting", settingName, "Name");
 
             AssignSettingFromVariable(SettingsManager.GetSettingByName(settingName));
 
@@ -39,8 +38,7 @@ namespace YARG.Menu.Settings.Visuals
             IsPresetSetting = true;
             UnlocalizedName = unlocalizedName;
 
-            _settingLabel.StringReference = LocaleHelper.StringReference(
-                "Settings", $"PresetSetting.{unlocalizedName}");
+            _settingLabel.text = Localize.Key("Settings.PresetSetting", unlocalizedName, "Name");
 
             AssignSettingFromVariable(reference);
 
